@@ -1,0 +1,46 @@
+﻿@page
+@model QueueSystemRazor.Pages.Admin.Queue.EditModel
+
+@{
+    ViewData["Title"] = "Edit";
+}
+
+<h2>Rediger</h2>
+
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form method="post">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="QueueEntry.Id" />
+            <div class="form-group">
+                <label asp-for="QueueEntry.StartTime" class="control-label"></label>
+                <input asp-for="QueueEntry.StartTime" class="form-control" />
+                <span asp-validation-for="QueueEntry.StartTime" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <div class="checkbox">
+                    <label>
+                        <input asp-for="QueueEntry.IsDone" /> @Html.DisplayNameFor(model => model.QueueEntry.IsDone)
+                    </label>
+                </div>
+            </div>
+            <div class="form-group">
+                <label asp-for="QueueEntry.MemberId" class="control-label"></label>
+                <select asp-for="QueueEntry.MemberId" class="form-control" asp-items="ViewBag.MemberId"></select>
+                <span asp-validation-for="QueueEntry.MemberId" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Gem" class="btn btn-default" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-page="./Index">Tilbage til køen</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

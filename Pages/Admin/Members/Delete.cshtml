@@ -1,0 +1,52 @@
+﻿@page
+@model QueueSystemRazor.Pages.Admin.Members.DeleteModel
+
+@{
+    ViewData["Title"] = "Slet";
+}
+
+<h2>Slet</h2>
+
+<h3>Er du sikker på, at du vil slette dette medlem?</h3>
+<div>
+    <h4>Medlem</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Member.Name)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Member.Name)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Member.Email)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Member.Email)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Member.PhoneNo)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Member.PhoneNo)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Member.Age)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Member.Age)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Member.IsMember)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Member.IsMember)
+        </dd>
+    </dl>
+    
+    <form method="post">
+        <input type="hidden" asp-for="Member.MemberId" />
+        <input type="submit" value="Slet" class="btn btn-default" /> |
+        <a asp-page="./Index">Tilbage til alle medlemmer</a>
+    </form>
+</div>

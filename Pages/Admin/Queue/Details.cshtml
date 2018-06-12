@@ -1,0 +1,38 @@
+﻿@page
+@model QueueSystemRazor.Pages.Admin.Queue.DetailsModel
+
+@{
+    ViewData["Title"] = "Detaljer";
+}
+
+<h2>Detaljer</h2>
+
+<div>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.QueueEntry.StartTime)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.QueueEntry.StartTime)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.QueueEntry.IsDone)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.QueueEntry.IsDone)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.QueueEntry.Member)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.QueueEntry.Member.MemberId) -
+            @Html.DisplayFor(model => model.QueueEntry.Member.Name) -
+            @Html.DisplayFor(model => model.QueueEntry.Member.PhoneNo)
+        </dd>
+    </dl>
+</div>
+<div>
+    <a asp-page="./Edit" asp-route-id="@Model.QueueEntry.Id">Rediger</a> |
+    <a asp-page="./Index">Tilbage til køen</a>
+</div>

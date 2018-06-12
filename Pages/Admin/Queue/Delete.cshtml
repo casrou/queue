@@ -1,0 +1,39 @@
+﻿@page
+@model QueueSystemRazor.Pages.Admin.Queue.DeleteModel
+
+@{
+    ViewData["Title"] = "Delete";
+}
+
+<h2>Fjern</h2>
+
+<h3>Er du sikker på, at du vil fjerne denne fra køen?</h3>
+<div>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.QueueEntry.StartTime)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.QueueEntry.StartTime)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.QueueEntry.IsDone)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.QueueEntry.IsDone)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.QueueEntry.Member)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.QueueEntry.Member.Name)
+        </dd>
+    </dl>
+    
+    <form method="post">
+        <input type="hidden" asp-for="QueueEntry.Id" />
+        <input type="submit" value="Fjern" class="btn btn-default" /> |
+        <a asp-page="./Index">Tilbage til køen</a>
+    </form>
+</div>

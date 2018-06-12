@@ -1,0 +1,49 @@
+﻿@page
+@model QueueSystemRazor.Pages.Admin.Members.DetailsModel
+
+@{
+    ViewData["Title"] = "Detaljer";
+}
+
+<h2>Detaljer</h2>
+
+<div>
+    <h4>Medlem</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Member.Name)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Member.Name)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Member.Email)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Member.Email)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Member.PhoneNo)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Member.PhoneNo)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Member.Age)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Member.Age)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Member.IsMember)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Member.IsMember)
+        </dd>
+    </dl>
+</div>
+<div>
+    <a asp-page="./Edit" asp-route-id="@Model.Member.MemberId">Rediger</a> |
+    <a asp-page="./Index">Tilbage til alle medlemmer</a>
+</div>

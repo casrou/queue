@@ -1,0 +1,111 @@
+﻿@page
+@model QueueSystemRazor.Pages.IndexModel
+
+@{
+    ViewData["Title"] = "Kø";
+    Layout = "_NoNavLayout";
+}
+
+<div class="row">
+    @if (Model.QueueEntry.Count != 0)
+    {
+        <div class="col-lg-4">
+            <div class="row">
+                <div class="col-sm-12">
+                    <h2>PÅ VANDET:</h2>
+                    <div class="card text-white mb-3 center">
+                        <img class="card-img" src="~/images/kran.jpg" style="height: 200px; object-fit: cover;">
+                        <div class="card-img-overlay" style="background-color: rgba(0,0,0,0.5);">
+                            <div class="card-body">
+                                <h6 class="card-subtitle mb-2">
+                                    @Html.DisplayNameFor(model => model.QueueEntry[0].StartTime):
+                                    @Model.QueueEntry.First().StartTime.ToString("HH:mm")
+                                </h6>
+                                <h3 class="card-title">@Model.QueueEntry.First().Member.Name</h3>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-sm-12">
+                    <h2>NÆSTE:</h2>
+                    <div class="card text-white mb-3">
+                        <img class="card-img" src="~/images/folk.jpg" style="height: 200px; object-fit: cover;">
+                        <div class="card-img-overlay" style="background-color: rgba(0,0,0,0.5);">
+                            <div class="card-body">
+                                @if (Model.QueueEntry.Count > 1)
+                                {
+                                    <h6 class="card-subtitle mb-2">
+                                        @Html.DisplayNameFor(model => model.QueueEntry[0].StartTime):
+                                        @Model.QueueEntry.Skip(1).First().StartTime.ToString("HH:mm")
+                                    </h6>
+                                    <h3 class="card-title">@Model.QueueEntry.Skip(1).First().Member.Name</h3>
+                                }
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-lg-7 offset-lg-1">
+            <h2>NUVÆRENDE KØ:</h2>
+            <div class="card mb-3">
+                <table class="table" style="border-color: white; margin-bottom: 0;">
+                    <thead class="card-title">
+                        <tr>
+                            <th>
+                                @Html.DisplayNameFor(model => model.QueueEntry[0].Member)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.QueueEntry[0].StartTime)
+                            </th>
+                        </tr>
+                    </thead>
+                    <tbody class="card-body">
+                        @if (Model.QueueEntry.Count > 0)
+                        {
+                            <tr>
+                                <td style="color: rgba(0,0,0,0.25)">
+                                    @Html.DisplayFor(modelItem => Model.QueueEntry.ElementAt(0).Member.Name)
+                                </td>
+                                <td style="color: rgba(0,0,0,0.25)">
+                                    @Model.QueueEntry.ElementAt(0).StartTime.ToString("HH:mm")
+                                </td>
+                            </tr>
+
+                            @if (Model.QueueEntry.Count > 1)
+                            {
+                                <tr>
+                                    <td style="color: rgba(0,0,0,0.5)">
+                                        @Html.DisplayFor(modelItem => Model.QueueEntry.ElementAt(1).Member.Name)
+                                    </td>
+                                    <td style="color: rgba(0,0,0,0.5)">
+                                        @Model.QueueEntry.ElementAt(1).StartTime.ToString("HH:mm")
+                                    </td>
+                                </tr>
+
+                                @foreach (var item in Model.QueueEntry.Skip(2))
+                                {
+                                    <tr>
+                                        <td>
+                                            @Html.DisplayFor(modelItem => item.Member.Name)
+                                        </td>
+                                        <td>
+                                            @item.StartTime.ToString("HH:mm")
+                                        </td>
+                                    </tr>
+                                }
+                            }
+                        }
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    } else
+    {
+        <h2>Køen er tom.</h2>
+    }
+</div>
+

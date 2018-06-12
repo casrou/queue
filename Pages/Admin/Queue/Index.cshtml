@@ -1,0 +1,48 @@
+﻿@page
+@model QueueSystemRazor.Pages.Admin.Queue.IndexModel
+
+@{
+    ViewData["Title"] = "Kø";
+}
+
+<h2>Kø</h2>
+
+<p>
+    <a asp-page="Create">Tilføj til køen</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.QueueEntry[0].StartTime)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.QueueEntry[0].IsDone)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.QueueEntry[0].Member)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model.QueueEntry) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.StartTime)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.IsDone)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Member.Name)
+            </td>
+            <td>
+                <a asp-page="./Edit" asp-route-id="@item.Id">Rediger</a> |
+                <a asp-page="./Details" asp-route-id="@item.Id">Detaljer</a> |
+                <a asp-page="./Delete" asp-route-id="@item.Id">Fjern</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
