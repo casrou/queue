@@ -1,5 +1,5 @@
-# Casrou Portal
-[koe.aarhuswake.dk](https://www.koe.aarhuswake.dk)
+# Queue- and Member System
+[koe.aarhuswatersportscomplex.dk](https://koe.aarhuswatersportscomplex.dk)
 
 ## Scaffolded
 - ASP.NET Core Razor Pages
