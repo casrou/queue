@@ -18,7 +18,7 @@
 - Create new SQLite database
 ### `appsettings.json`
 - Update connectionstring: "DefaultConnection": "DataSource=*name_of_database*.db"
-### Package Manager Console/PowerShell
+### Package Manager Console
 - Run `Update-Database -Context ApplicationDbContext`
 - Run `Update-Database -Context MemberContext`
 - Run `Update-Database -Context QueueContext`
