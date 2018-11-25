@@ -1,6 +1,4 @@
 # Queue- and Member System
-[koe.aarhuswatersportscomplex.dk](https://koe.aarhuswatersportscomplex.dk)
-
 ![Queue](Queue.png)
 ![Member Page](MemberPage.png)
 ![Queue Page](QueuePage.png)
