@@ -1,4 +1,4 @@
-# Queue- and Member System
+# Queue- and Membership System
 ![Queue](Queue.png)
 ![Member Page](MemberPage.png)
 ![Queue Page](QueuePage.png)
